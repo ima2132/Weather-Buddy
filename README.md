@@ -40,11 +40,17 @@ Weather Buddy displays the current weather information on the screen, presenting
 ## Screenshots 
 The following screenshots illustrate a demonstration of how to utilize this application. You can start by entering the name of your desired city into the search bar:
 
+<img width="1440" alt="Screen Shot 2023-05-19 at 7 53 40 PM" src="https://github.com/ima2132/Weather-Buddy/assets/117132129/d2726e54-916f-4ba6-9628-e17caff46cc6">
+
 
 You will then be presented with the city's current weather conditions and 5-day forecast: 
 
+<img width="1440" alt="Screen Shot 2023-05-19 at 7 54 26 PM" src="https://github.com/ima2132/Weather-Buddy/assets/117132129/0f613bb9-fc2d-45cb-99a2-f29b9dc352af"><img width="1440" alt="Screen Shot 2023-05-19 at 7 54 37 PM" 
+
 
 Previous search entries can be located underneath the weather display/home page:
+
+<img width="1440" alt="Screen Shot 2023-05-19 at 7 54 48 PM" src="https://github.com/ima2132/Weather-Buddy/assets/117132129/ad464cba-5cd2-464e-ac07-52b622675531">
 
 ## License
 Please refer to the LICENSE listed in the repo. 
