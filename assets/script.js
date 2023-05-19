@@ -15,31 +15,39 @@ function getWeather(lat, lon, city) {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`)
       .then(response => response.json())
       .then(data => {
-        
- // show current weather forecast 
-    const currentWeather = data.list[0];
-    let weatherIcon = getWeatherIcon(currentWeather.weather[0].main);
-     document.getElementById('current-weather').innerHTML = `
+
+
+// shows the current weather
+const currentWeather = data.list[0];
+let weatherIcon = getWeatherIcon(currentWeather.weather[0].main);
+let currentDate = new Date(currentWeather.dt_txt);
+currentDate = (currentDate.getMonth() + 1) + "/" + currentDate.getDate() + "/" + currentDate.getFullYear();
+document.getElementById('current-weather').innerHTML = `
     <h2>${city} <i class="${weatherIcon}"></i></h2>
-        <p>${currentWeather.dt_txt}</p>
-        <p>Temperature: ${(currentWeather.main.temp - 273.15).toFixed(2)}°C</p>
-        <p>Humidity: ${currentWeather.main.humidity}%</p>
-        <p>Wind Speed: ${currentWeather.wind.speed}m/s</p>`;
+    <p>${currentDate}</p>
+    <p>Temperature: ${((currentWeather.main.temp - 273.15) * 9/5 + 32).toFixed(2)}°F</p>
+    <p>Humidity: ${currentWeather.main.humidity}%</p>
+    <p>Wind Speed: ${(currentWeather.wind.speed * 2.237).toFixed(2)} MPH</p>
+    `;
               
-// show 5-day forecast
+    
+// shows 5-day forecast
 const forecast = data.list.filter((_, index) => index % 8 === 0).slice(1);
 document.getElementById('forecast').innerHTML = forecast.map(day => {
 let dayWeatherIcon = getWeatherIcon(day.weather[0].main);
-    return `
-        <div>
-        <h3>${day.dt_txt} <i class="${dayWeatherIcon}"></i></h3>
-        <p>Temperature: ${(day.main.temp - 273.15).toFixed(2)}°C</p>
-        <p>Humidity: ${day.main.humidity}%</p>
-        <p>Wind Speed: ${day.wind.speed}m/s</p>
-        </div>
-        `
+let forecastDate = new Date(day.dt_txt);
+forecastDate = (forecastDate.getMonth() + 1) + "/" + forecastDate.getDate() + "/" + forecastDate.getFullYear();
+return `
+<div>
+    <h3>${forecastDate} <i class="${dayWeatherIcon}"></i></h3>
+    <p>Temperature: ${((day.main.temp - 273.15) * 9/5 + 32).toFixed(2)}°F</p>
+    <p>Humidity: ${day.main.humidity}%</p>
+    <p>Wind Speed: ${(day.wind.speed * 2.237).toFixed(2)} MPH</p>
+    </div>
+    `
     }).join('');
 
+              
 // add to search history
 addToHistory(city);
 });

@@ -71,3 +71,38 @@ body {
   flex-direction: column;
   gap: 30px;
 }
+
+
+#search-button {
+    padding: 20px 40px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: italic;
+  }
+
+  .history-btn {
+    margin-top: 20px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  .history-btn:hover {
+    margin-top: 20px;
+    background-color: #a7caf3;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 20px;
+    cursor: pointer;
+    font-size: 20px;
+  }
