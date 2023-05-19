@@ -10,3 +10,19 @@ function getCoords(city) {
       getWeather(data[0].lat, data[0].lon, city)
     });
 }
+
+function getWeather(lat, lon, city) {
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+        
+        // show current weather forecast 
+        const currentWeather = data.list[0];
+        let weatherIcon = getWeatherIcon(currentWeather.weather[0].main);
+        document.getElementById('current-weather').innerHTML = `
+                  <h2>${city} <i class="${weatherIcon}"></i></h2>
+                  <p>${currentWeather.dt_txt}</p>
+                  <p>Temperature: ${(currentWeather.main.temp - 273.15).toFixed(2)}°C</p>
+                  <p>Humidity: ${currentWeather.main.humidity}%</p>
+                  <p>Wind Speed: ${currentWeather.wind.speed}m/s</p>
+              `;
