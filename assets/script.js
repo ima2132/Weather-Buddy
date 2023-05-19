@@ -79,3 +79,22 @@ function getWeatherIcon(weatherCondition) {
         return '';
     }
   }
+
+// function to display search history
+function showHistory() {
+    const history = JSON.parse(localStorage.getItem('history')) || [];
+    document.getElementById('history').innerHTML = history.map(city => `<button class="history-btn">${city}</button>`).join('');
+    const buttons = document.getElementsByClassName('history-btn');
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', () => getCoords(buttons[i].textContent));
+    }
+  }
+  
+  // on search
+  document.getElementById('search-button').addEventListener('click', () => {
+    const city = document.getElementById('search-box').value;
+    getCoords(city);
+  });
+  
+  // on load
+  showHistory();
