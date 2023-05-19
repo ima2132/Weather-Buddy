@@ -1,4 +1,4 @@
-# Weather Dashboard
+# Weather Buddy
 ## Table of Contents 
 - [Description](#description)
 - [User Story](#user-story)
