@@ -44,3 +44,38 @@ let dayWeatherIcon = getWeatherIcon(day.weather[0].main);
 addToHistory(city);
 });
 }
+
+// added function to add city to search history and local storage
+function addToHistory(city) {
+    let history;
+    if (localStorage.getItem('history')) {
+      history = JSON.parse(localStorage.getItem('history'));
+      if (!history.includes(city)) {
+        history.push(city);
+      }
+    } else {
+      history = [city];
+    }
+    localStorage.setItem('history', JSON.stringify(history));
+    showHistory();
+  }
+  
+// function to have weather icons displayed on the forecast 
+function getWeatherIcon(weatherCondition) {
+    switch (weatherCondition) {
+      case 'Clear':
+        return 'fas fa-sun';
+      case 'Clouds':
+        return 'fas fa-cloud';
+      case 'Rain':
+      case 'Drizzle':
+      case 'Mist':
+        return 'fas fa-cloud-rain';
+      case 'Thunderstorm':
+        return 'fas fa-bolt';
+      case 'Snow':
+        return 'fas fa-snowflake';
+      default:
+        return '';
+    }
+  }
