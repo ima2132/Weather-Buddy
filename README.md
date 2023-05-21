@@ -56,4 +56,4 @@ Previous search entries can be located underneath the weather display/home page:
 Please refer to the LICENSE listed in the repo. 
 
 ## Deployed URL
-https://ima2132.github.io/Weather-Dashboard/ 
+https://ima2132.github.io/Weather-Buddy/
